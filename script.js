@@ -52,6 +52,18 @@ function prevSong() {
   playSong();
 }
 
+function nextSong() {
+  songIndex++;
+
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+
+  loadSong(songs[songIndex]);
+
+  playSong();
+}
+
 // Event listeners
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play');
@@ -65,3 +77,4 @@ playBtn.addEventListener('click', () => {
 
 // Change song events
 prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
